@@ -7,6 +7,7 @@ var client = new Twitter(keys.twitter);
 var inquirer = require('inquirer');
 var omdb = require('omdb');
 var request = require('request');
+var fs = require('fs');
 
 
 function introduction() {
@@ -96,7 +97,7 @@ function run() {
 		.prompt([
 		{
 			type: "input",
-			message: "Whacha wanna know?",
+			message: "Whacha wanna know? (I take commands like 'movie-this', 'my-tweets', and 'spotify-this-song'.)",
 			name:  "action"
 		}
 		])
@@ -140,7 +141,7 @@ function run() {
 				.prompt([
 				{
 					type: "input",
-					message: "I love movies!  Whaddya been watchin'? (If you leave the input blank, I can tell you about what I've been whatchin'!)",
+					message: "I love movies!  Whaddya been watchin'? (If you leave the input blank, I can tell you about what I've been whatchin'!) \n--->",
 					name: "movie"
 				}
 				])
@@ -151,6 +152,7 @@ function run() {
 		}
 	});
 }
+
 
 introduction();
 run();
